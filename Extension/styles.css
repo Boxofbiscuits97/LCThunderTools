@@ -1,0 +1,27 @@
+.info-icon {
+    display: inline-block;
+    position: relative;
+    cursor: help;
+}
+
+.info-icon:hover::before {
+    content: attr(data-info);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-125%);
+    padding: 0.5em;
+    background-color: #444444;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 0.8em;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-weight: normal; /* Add this line to unbold the text on hover */
+}
+
+.info-icon:hover::before {
+    opacity: 1;
+}

@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "LC ThunderTools",
+  "description": "A dumpsterfire of a chrome extension Boxofbiscuits97 built to help ease moderation of the LC thunderstore page",
+  "version": "1.0.0",
+  "icons": {
+    "48": "icon48.png",
+    "96": "icon96.png"
+  },
+  "action": {
+    "default_icon": {
+      "48": "icon48.png",
+      "96": "icon96.png"
+    },
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://thunderstore.io/*"],
+      "js": ["main.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}
