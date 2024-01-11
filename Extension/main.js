@@ -37,7 +37,6 @@ async function updateTable() {
 
         if (truncatedHTML.substring(startIndex + 1, startIndex + 2) == ".") {
             repeats++;
-            console.log("nice")
             packVersion = truncatedHTML.substring(startIndex, startIndex + endOffset);
             if (repeats > 10) {
                 repeats = 0;
@@ -128,9 +127,8 @@ async function handleButtonClick() {
 }
 
 async function getCopyPastas(){
-    fetch('https://raw.githubusercontent.com/Boxofbiscuits97/LCThunderTools/main/Extension/copypastas.json')
+    return await fetch('https://raw.githubusercontent.com/Boxofbiscuits97/LCThunderTools/main/Extension/copypastas.json')
         .then(response => response.json())
-        .then(data => console.log(data))
         .catch(error => console.error('Error fetching JSON:', error));
 }
 
@@ -155,23 +153,25 @@ async function autoReviewResponses(){
     newButtonDiv.style.flexWrap = 'wrap';
     newResponseDiv.insertAdjacentElement('beforeend', newButtonDiv);
 
-    await getCopyPastas();
-    /*for (const [key, value] of Object.entries(CopyPastas)) {
-        
-        var newButton = document.createElement('button');
-        newButton.textContent = key;
-        newButton.type = 'button';
-        newButton.className = 'btn btn-primary'
-        newButton.value = value;
+    getCopyPastas().then(data => {
+        const CopyPastas = data;
+       
+        for (let key in CopyPastas) {          
+            var newButton = document.createElement('button');
+            newButton.textContent = key;
+            newButton.type = 'button';
+            newButton.className = 'btn btn-primary'
+            newButton.value = CopyPastas[key];
 
-        newButton.addEventListener('click', function() {
-            var rejectionReasonTextareaByName = document.getElementsByName("rejectionReason")[0];
-            rejectionReasonTextareaByName.value = this.value;
-            rejectionReasonTextareaByName.focus();
-        });
-        
-        newButtonDiv.insertAdjacentElement('beforeend', newButton);
-    }*/
+            newButton.addEventListener('click', function() {
+                var rejectionReasonTextareaByName = document.getElementsByName("rejectionReason")[0];
+                rejectionReasonTextareaByName.value = this.value;
+                rejectionReasonTextareaByName.focus();
+            });
+            
+            newButtonDiv.insertAdjacentElement('beforeend', newButton);
+        }
+    });
 }
 
 
@@ -188,7 +188,8 @@ async function main() {
         //console.log(links);
         await createTimeHeader();
     }
-    await setupReview();
+    var reviewButton = document.querySelector('.btn.btn-warning[aria-label="Review Package"]');
+    if (reviewButton !== null) await setupReview();
 }
 
 main();
