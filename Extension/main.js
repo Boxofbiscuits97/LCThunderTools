@@ -29,13 +29,21 @@ async function updateTable() {
 
     offsetIndex = 0;
     truncatedHTML = newbody;
+    repeats = 0;
 
     while (truncatedHTML.indexOf("<td>") > -1) {
         startIndex = truncatedHTML.indexOf("<td>") + 4;
         endOffset = truncatedHTML.substring(startIndex).indexOf("</td>");
 
         if (truncatedHTML.substring(startIndex + 1, startIndex + 2) == ".") {
+            repeats++;
+            console.log("nice")
             packVersion = truncatedHTML.substring(startIndex, startIndex + endOffset);
+            if (repeats > 10) {
+                repeats = 0;
+                console.log("waiting...")
+                await new Promise(resolve => setTimeout(resolve, 650));
+            }
             let time = await getTime(packVersion);
             newbody = newbody.substring(0, newbody.indexOf(truncatedHTML) - 4) + "<td>" + time + "</td>" + newbody.substring(newbody.indexOf(truncatedHTML) - 4);
         }
@@ -177,8 +185,8 @@ async function main() {
     
     if (window.location.href.endsWith("/versions/")) {
         await updateTable();
-        links = await findDownloadLinks();
-        console.log(links);
+        //links = await findDownloadLinks();
+        //console.log(links);
         await createTimeHeader();
     }
     await setupReview();
