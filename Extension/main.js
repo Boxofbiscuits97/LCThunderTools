@@ -159,6 +159,7 @@ async function autoReviewResponses(){
         newButton.addEventListener('click', function() {
             var rejectionReasonTextareaByName = document.getElementsByName("rejectionReason")[0];
             rejectionReasonTextareaByName.value = this.value;
+            rejectionReasonTextareaByName.focus();
         });
         
         newButtonDiv.insertAdjacentElement('beforeend', newButton);
