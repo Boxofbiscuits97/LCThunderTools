@@ -127,13 +127,12 @@ async function handleButtonClick() {
     await autoReviewResponses();
 }
 
-const CopyPastas = {
-    Invalid: "Invalid Submission",
-    Identical: "Package name is identical to another. Please use unique identifiers such as icon/readme and name. Do not upload other user's assets without permission.",
-    NSFW: "The content within the package has been deemed not safe for work and/or offensive.",
-    DLLClone: "This package contains uploaded DLLs of other mods. Do not upload other user's assets without permission. Please instead use dependency strings provided on the mod page in your manifest.",
-    UploadRights: "The content within the package has been deemed not authorized to be uploaded. Please be sure that you have the rights to upload content.",
-};
+async function getCopyPastas(){
+    fetch('https://raw.githubusercontent.com/Boxofbiscuits97/LCThunderTools/main/Extension/copypastas.json')
+        .then(response => response.json())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error fetching JSON:', error));
+}
 
 async function autoReviewResponses(){
     await new Promise(resolve => setTimeout(resolve, 1)); //delay so that page elements load first
@@ -156,8 +155,8 @@ async function autoReviewResponses(){
     newButtonDiv.style.flexWrap = 'wrap';
     newResponseDiv.insertAdjacentElement('beforeend', newButtonDiv);
 
-
-    for (const [key, value] of Object.entries(CopyPastas)) {
+    await getCopyPastas();
+    /*for (const [key, value] of Object.entries(CopyPastas)) {
         
         var newButton = document.createElement('button');
         newButton.textContent = key;
@@ -172,7 +171,7 @@ async function autoReviewResponses(){
         });
         
         newButtonDiv.insertAdjacentElement('beforeend', newButton);
-    }
+    }*/
 }
 
 
