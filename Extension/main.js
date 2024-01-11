@@ -131,9 +131,8 @@ const CopyPastas = {
     Invalid: "Invalid Submission",
     Identical: "Package name is identical to another. Please use unique identifiers such as icon/readme and name. Do not upload other user's assets without permission.",
     NSFW: "The content within the package has been deemed not safe for work and/or offensive.",
-    DLLClone: "This package contains uploaded DLLs of other mods. Do not upload other user's assets without permission.",
-    DLLPack: "This package contains uploaded DLLs of other mods. Please instead use dependency strings provided on the mod page in your manifest.",
-    UnownedContent: "The content within the package has been deemed not authorized to be uploaded. Please be sure that you have the rights to upload content.",
+    DLLClone: "This package contains uploaded DLLs of other mods. Do not upload other user's assets without permission. Please instead use dependency strings provided on the mod page in your manifest.",
+    UploadRights: "The content within the package has been deemed not authorized to be uploaded. Please be sure that you have the rights to upload content.",
 };
 
 async function autoReviewResponses(){
