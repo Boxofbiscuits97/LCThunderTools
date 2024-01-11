@@ -122,6 +122,7 @@ async function handleButtonClick() {
 const CopyPastas = {
     Invalid: "Invalid Submission",
     Identical: "Package name is identical to another. Please use unique identifiers such as icon/readme and name. Do not upload other user's assets without permission.",
+    NSFW: "The content within the package has been deemed not safe for work and/or offensive.",
     DLLClone: "This package contains uploaded DLLs of other mods. Do not upload other user's assets without permission.",
     DLLPack: "This package contains uploaded DLLs of other mods. Please instead use dependency strings provided on the mod page in your manifest.",
 };
