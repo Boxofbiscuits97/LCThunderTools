@@ -18,7 +18,17 @@ An expanding list of what generic reasons to be autofilled by a click of a butto
 
 ## Installation
 
+### Chrome
+
 1. Download and extract the zip file
-2. Go to the [Chrome Etensions Page](chrome://extensions/)
+2. Go to the Chrome Etensions Page
 3. Make sure Developer mode is enabled
 4. Click `Load unpacked` and select the `extension` folder from the zip 
+
+### Firefox
+
+1. Download and extract the zip file
+2. Go to the Firefox Add-ons Page
+3. Click the cog and press `Debug add-ons`
+4. Click `Load Temporary add-on` and select the **main.js** file
+5. On the thunderstore page right click on the add-on and select `Always Allow`
