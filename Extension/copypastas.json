@@ -3,5 +3,8 @@
    "Identical": "Package name is identical to another. Please use unique identifiers such as icon/readme and name. Do not upload other user's assets without permission.",
    "NSFW": "The content within the package has been deemed not safe for work and/or offensive.",
    "DLLClone": "This package contains uploaded DLLs of other mods. Do not upload other user's assets without permission. Use dependency strings on the mod's page in your manifest.",
-   "UploadRights": "The content within the package has been deemed not authorized to be uploaded. Please be sure that you have the rights to upload content."
+   "UploadRights": "The content within the package has been deemed not authorized to be uploaded. Please be sure that you have the rights to upload content.",
+   "test1": "this is a test for the system1",
+   "test2": "this is a test for the system2",
+   "test3": "this is a test for the system3"
 }
