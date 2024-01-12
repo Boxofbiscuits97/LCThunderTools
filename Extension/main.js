@@ -84,13 +84,11 @@ function addInfoIconWithinElement(element, infoText) {
     infoIcon.setAttribute('data-info', infoText);
     infoIcon.innerHTML = '<span>&#9432;</span>';
 
-    // Set CSS styles for positioning
     infoIcon.style.position = 'relative';
     infoIcon.style.display = 'inline-block';
     infoIcon.style.marginLeft = '5px';
     infoIcon.style.fontWeight = 'normal';
 
-    // Append the info icon within the <th> element
     element.appendChild(infoIcon);
 }
 
